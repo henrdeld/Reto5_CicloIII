@@ -1,0 +1,10 @@
+package com.usa.misiontic.MasterClass3.repository.crudRepository;
+
+
+import com.usa.misiontic.MasterClass3.entities.Category;
+import com.usa.misiontic.MasterClass3.entities.Client;
+import org.springframework.data.repository.CrudRepository;
+
+public interface ClientCrudRepository extends CrudRepository<Client,Integer> {
+
+}

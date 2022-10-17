@@ -37,12 +37,12 @@ public class ReservationRepository {
         List<CountClient> resultado = new ArrayList<>();
         List<Object[]> report = reservationCrudRepository.countTotalReservationsByClient();
         for (int i =0; i< report.size();i++){
-            resultado.add(new CountClient((Long) report.get(i)[1], (Client) report.get(i)[0]));
+            resultado.add(new CountClient((Long)report.get(i)[1], (Client)report.get(i)[0]));
         }
         return resultado;
     }
 
-    public List<Reservation> getReservationPeriod(Date a, Date b){
+    public List<Reservation> getReservationPeriod(Date a, Date b) {
         return reservationCrudRepository.findAllByStartDateAfterAndStartDateBefore(a, b);
     }
 

@@ -6,6 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Date;
 import java.util.List;
+
 public interface ReservationCrudRepository extends CrudRepository<Reservation,Integer> {
 
     //select client_id, count(*) as total from reservation   group by client_id order by total DESC;

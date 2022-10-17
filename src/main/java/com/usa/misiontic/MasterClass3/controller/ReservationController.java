@@ -1,6 +1,8 @@
 package com.usa.misiontic.MasterClass3.controller;
 
 
+import com.usa.misiontic.MasterClass3.ModelsCustomized.CountClient;
+import com.usa.misiontic.MasterClass3.ModelsCustomized.StatusAmount;
 import com.usa.misiontic.MasterClass3.entities.Category;
 import com.usa.misiontic.MasterClass3.entities.Reservation;
 import com.usa.misiontic.MasterClass3.service.ReservationService;
@@ -38,5 +40,22 @@ public class ReservationController {
     public Reservation update(@RequestBody Reservation p){
         return reservationService.update(p);
     }
+
+    //Reto5
+    @GetMapping("/reports-clients")
+    public List<CountClient> getReservationReportClient(){
+        return reservationService.getTopClients();
+    }
+
+    @GetMapping("/report-status")
+    public StatusAmount getReservationStatus(){
+        return reservationService.getReservationStatusReport();
+    }
+
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getReservationReportDates(@PathVariable("dateOne") String dateOne, @PathVariable("dateTwo") String dateTwo){
+        return reservationService.getReservationPeriod(dateOne,dateTwo);
+    }
+
 
 }
